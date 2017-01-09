@@ -15,6 +15,21 @@ public class Main {
         restaurants.add(new Restaurant(2, "McDonalds", "12 Ronald Lane", "Bad", "Cheap", 1));
         restaurants.add(new Restaurant(3, "Mellow Mushroom", "420 Willie Nelson Dr.", "Weed", "more than I want always", 5));
 
+        Spark.post("/create-restaurant", (req, res) -> {
+            restaurants.add(
+                    new Restaurant(Integer.valueOf(
+                            req.queryParams("id")),
+                            req.queryParams("name"),
+                            req.queryParams("address"),
+                            req.queryParams("type"),
+                            req.queryParams("price"),
+                            Integer.valueOf(req.queryParams("rating"))));
+
+            res.redirect("/");
+            return "";
+
+        });
+
         Spark.get("/restaurants", (req, res) -> {
 
             HashMap m = new HashMap();
