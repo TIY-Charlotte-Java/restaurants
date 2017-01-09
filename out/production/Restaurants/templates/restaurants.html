@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+</head>
+<body>
+<h1>Restaurants!</h1>
+<ul>
+{{#restaurants}}
+    <li>{{id}}</li>
+    <li>{{name}}</li>
+    <li>{{address}}</li>
+    <li>{{type}}</li>
+    <li>{{price}}</li>
+    <li>{{rating}}</li>
+
+    Click To Edit:
+    <a href="/restaurants/{{id}}">Edit</a>
+{{/restaurants}}
+</ul>
+
+</body>
+</html>
